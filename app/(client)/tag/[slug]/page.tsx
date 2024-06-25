@@ -3,27 +3,10 @@ import PostComponent from "@/app/components/PostComponent";
 // import { Post } from "@/app/utils/interface";
 // import { client } from "@/sanity/lib/client";
 import React from "react";
+import getBlogsByCategory from "@/lib/getBlogsByCategory";
+import { slugify } from "@/app/utils/helpers";
 
-async function getPostsByTag(tag: string) {
-  const query = `
-  *[_type == "post" && references(*[_type == "tag" && slug.current == "${tag}"]._id)]{
-    title,
-    slug,
-    publishedAt,
-    excerpt,
-    tags[]-> {
-      _id,
-      slug,
-      name
-    }
-  }
-  `;
-
-  const posts = await client.fetch(query);
-  return posts;
-}
-
-export const revalidate = 60;
+// export const revalidate = 60;
 
 export async function generateMetadata({ params }: Params) {
   return {
@@ -47,8 +30,9 @@ interface Params {
 }
 
 const page = async ({ params }: Params) => {
-  const posts: Array<Post> = await getPostsByTag(params.slug);
-  console.log(posts, "posts by tag");
+  // const slugged = slugify(params.slug)
+  const posts: Blog[] = await getBlogsByCategory(params.slug);
+ 
   return (
     <div>
       <Header title={`#${params?.slug}`} tags />

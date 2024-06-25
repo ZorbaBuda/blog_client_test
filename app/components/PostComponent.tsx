@@ -19,13 +19,21 @@ const PostComponent = ({post}: Props) => {
         <p className='dark:text-gray-400 mb-4 line-clamp-2'>{post?.metaDescription}</p>
       </Link>
 
-      {/* TAGS */}
-
+     
       <div>
+       
+          <span  className='mr-2 p-1 rounded-sm text-sm lowercase dark:bg-gray-950 border dark:border-gray-900'>
+            #{post?.category}
+            </span>
+       
+      </div>
+
+      {/* TAGS not now*/}
+      {/* <div>
         {post?.categories?.map((tag) => (
           <span key={tag} className='mr-2 p-1 rounded-sm text-sm lowercase dark:bg-gray-950 border dark:border-gray-900'>#{tag}</span>
         ))}
-      </div>
+      </div> */}
     </div>
   )
 }

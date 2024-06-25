@@ -2,7 +2,13 @@ import "server-only"
 import { cache } from "react"
 
 async function getCategories() {
-    const res = await fetch('http://localhost:3001/api/categories')
+    const res = await fetch('http://localhost:3001/api/categories',
+      {
+        next: {
+          revalidate: 30
+        }
+      }
+    )
    
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary

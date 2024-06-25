@@ -21,7 +21,7 @@ const AddComment = ({ postId }: Props) => {
       body: JSON.stringify({ name, email, comment, postId }),
     });
     if (!res.ok) {
-      console.log("Failed to add comment");
+      ("Failed to add comment"console.log);
       return;
     }
 

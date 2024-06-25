@@ -78,6 +78,15 @@ const page = async ({ params, searchParams }: Params) => {
           {new Date(post?.createdAt).toDateString()}
         </span>
         <div className="mt-5">
+        
+            <Link  href={`/tag/${post?.category}`}>
+              <span className="mr-2 p-1 rounded-sm text-sm lowercase dark:bg-gray-950 border dark:border-gray-900">
+                #{post?.category}
+              </span>
+            </Link>
+         
+        </div>
+        {/* <div className="mt-5">
           {post?.categories?.map((tag) => (
             <Link key={tag} href={`/tag/${tag}`}>
               <span className="mr-2 p-1 rounded-sm text-sm lowercase dark:bg-gray-950 border dark:border-gray-900">
@@ -85,7 +94,7 @@ const page = async ({ params, searchParams }: Params) => {
               </span>
             </Link>
           ))}
-        </div>
+        </div> */}
         {/* <Toc headings={post?.headings} /> */}
         <div className={richTextStyles}>
          {parser(post.body)}

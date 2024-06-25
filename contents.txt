@@ -1,0 +1,15 @@
+-Layout Metadata (global SEO setup)
+
+socialsharepreviews
+
+-Metadata for individual pages (Server and Client side)
+
+-Extend Metadata from Layout to Single pages
+
+-Static pages vs Dynamic pages SEO - generate metadata 
+
+-Open graph image
+
+-Sitemap
+
+-Robots

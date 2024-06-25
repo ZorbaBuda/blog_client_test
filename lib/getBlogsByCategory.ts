@@ -4,6 +4,7 @@ async function getBlogsByCategory(categoryName : String) {
   console.log(categoryName)
     const res = await fetch(`http://localhost:3001/api/categories/${categoryName}`)
     
+    console.log(`http://localhost:3001/api/categories/${categoryName}`)
    
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
