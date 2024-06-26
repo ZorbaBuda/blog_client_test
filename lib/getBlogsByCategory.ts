@@ -2,7 +2,13 @@ import "server-only"
 
 async function getBlogsByCategory(categoryName : String) {
   console.log(categoryName)
-    const res = await fetch(`http://localhost:3001/api/categories/${categoryName}`)
+    const res = await fetch(`http://localhost:3001/api/categories/${categoryName}`,
+      {
+        next: {
+          revalidate: 30
+        }
+      }
+    )
     
     console.log(`http://localhost:3001/api/categories/${categoryName}`)
    

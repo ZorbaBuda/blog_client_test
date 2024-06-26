@@ -66,12 +66,24 @@ const page = async ({ params, searchParams }: Params) => {
  
   const post: Blog = await getPost(params?.slug);
 
+  // console.log(post)
+
   if (!post) {
     notFound();
   }
 
   return (
     <div>
+       <div className="">
+        <Image
+            src={post.featuredImage.imageUrl || ''}
+            alt={`${post.featuredImage.altText} thumbnail`}
+            height="0"
+            width="0"
+            className="w-1/2 h-fit mb-4 rounded-md mx-auto"
+            unoptimized
+        />
+    </div>
       <Header title={post?.title} />
       <div className="text-center">
         <span className={`${dateFont?.className} text-purple-500`}>
