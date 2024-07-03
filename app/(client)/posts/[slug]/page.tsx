@@ -1,5 +1,5 @@
-import Header from "@/app/components/Header";
-import Toc from "@/app/components/Toc";
+import Header from "@/components/Header";
+import Toc from "@/components/Toc";
 import { slugify } from "@/app/utils/helpers";
 import { PortableText } from "@portabletext/react";
 import { Metadata } from "next";

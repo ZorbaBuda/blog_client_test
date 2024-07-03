@@ -1,6 +1,6 @@
-import Header from "../components/Header";
+import Header from "@/components/Header";
 // import { Post } from "../utils/interface";
-import PostComponent from "../components/PostComponent";
+import PostComponent from "@/components/PostComponent";
 import getBlogs from "@/lib/getBlogs";
 
 

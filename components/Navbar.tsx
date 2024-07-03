@@ -15,6 +15,19 @@ const Navbar = () => {
             <span className="text-purple-500">Blook</span>
           </div>
         </Link>
+
+        <Link href="/tailwind">
+          <div className={`${font.className} text-3xl dark:text-amber-50`}>
+            Let's
+            <span className="text-purple-500">Tailwind</span>
+          </div>
+        </Link>
+        <Link href="/form">
+          <div className={`${font.className} text-3xl dark:text-amber-50`}>
+            Let's
+            <span className="text-purple-500">Form</span>
+          </div>
+        </Link>
         <ThemeSwitch />
       </div>
     </div>
