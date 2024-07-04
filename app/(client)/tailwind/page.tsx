@@ -1,4 +1,6 @@
 import AspectRatio from "@/components/tailwind/layout/AspectRatio";
+import BoxSizing from "@/components/tailwind/layout/BoxSizing";
+import BreakAfter from "@/components/tailwind/layout/BreakAfter";
 import Columns from "@/components/tailwind/layout/Columns";
 import Container from "@/components/tailwind/layout/Container";
 import Link from "next/link";
@@ -28,7 +30,9 @@ export default function page() {
       </ul>
       {/* <AspectRatio/> */}
       {/* <Container/> */}
-      <Columns />
+      {/* <Columns /> */}
+      {/* <BreakAfter /> */}
+      <BoxSizing />
 
   </>
   )

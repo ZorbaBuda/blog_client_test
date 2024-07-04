@@ -28,7 +28,7 @@ import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { Checkbox } from "@radix-ui/react-checkbox";
+import { Checkbox } from "../ui/checkbox";
 
 //  const Input = z.infer<typeof contactFormSchema>
 
@@ -50,16 +50,28 @@ export default function ContactForm() {
     },
   });
 
-  function onSubmit(data: z.infer<typeof contactFormSchema>) {
-    toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
+  // function onSubmit(data: z.infer<typeof contactFormSchema>) {
+  //   console.log(data)
+  //   toast({
+  //     title: "You submitted the following values:",
+  //     description: (
+  //       <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+  //         <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+  //       </pre>
+  //     ),
+  //   });
+  // }
+  async function onSubmit(data: z.infer<typeof contactFormSchema>) {
+    console.log(data)
+    try{
+   await fetch("/api/contact", {
+    method: "POST",
+    body: JSON.stringify(data)
+   })
+  } catch (error){
+    console.log(error)
   }
+}
 
   // function onSubmit(data: ContactFormProps) {
   //   alert(JSON.stringify(data, null, 4));
@@ -169,6 +181,7 @@ export default function ContactForm() {
                       <Checkbox
                         checked={field.value}
                         onCheckedChange={field.onChange}
+                        className=""
                       />
                     </FormControl>
                     <div className="">
