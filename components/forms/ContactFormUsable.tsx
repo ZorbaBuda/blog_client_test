@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/form";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
 import { contactFormSchema } from "@/schemas/contact-form-schema";
 import { useToast } from "../ui/use-toast";
@@ -29,10 +29,13 @@ import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Checkbox } from "../ui/checkbox";
+import { InputField } from "../form-fields/input-field";
+import { TextareaField } from "../form-fields/textarea-field";
+import { CheckboxField } from "../form-fields/checkbox-field";
 
 //  const Input = z.infer<typeof contactFormSchema>
 
-export default function ContactForm() {
+export default function ContactFormUsable() {
   const { toast } = useToast();
 
   const currentDate = new Date().toDateString();
@@ -81,98 +84,56 @@ export default function ContactForm() {
   return (
     <>
       <div>Form</div>
-      <Card className="mx-auto text-3xl border-none">
+      <Card className="mx-auto text-xl border-none">
         <CardHeader>
           <CardTitle>Contacto</CardTitle>
           <CardDescription>Haz tu consulta o sugerencia</CardDescription>
         </CardHeader>
         <CardContent>
-          <Form {...form}>
+          <FormProvider {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
               className="relative space-y-3 overflow-x-hidden"
+              noValidate
             >
               {/* name */}
-              <FormField
-                control={form.control}
+              <InputField
+                placeholder="Name*"
                 name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    {/* <FormLabel>Name</FormLabel> */}
-                    <FormControl>
-                      <Input placeholder="Name*" {...field} />
-                    </FormControl>
-                    {/* <FormDescription>
-                        This is your public display name.
-                      </FormDescription> */}
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              {/* surname */}
-              <FormField
-                control={form.control}
+                />
+               {/* surname */}
+              <InputField
+                placeholder="Surname*"
                 name="surname"
-                render={({ field }) => (
-                  <FormItem>
-                    {/* <FormLabel>Surname</FormLabel> */}
-                    <FormControl>
-                      <Input placeholder="Surname*" {...field} />
-                    </FormControl>
-
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+                />
               {/* phone */}
-              <FormField
-                control={form.control}
+              <InputField
+                placeholder="Phone*"
                 name="phone"
-                render={({ field }) => (
-                  <FormItem>
-                    {/* <FormLabel>Phone</FormLabel> */}
-                    <FormControl>
-                      <Input placeholder="Phone*" {...field} />
-                    </FormControl>
-
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+                />
               {/* email */}
-              <FormField
-                control={form.control}
+              <InputField
+                placeholder="Email*"
                 name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    {/* <FormLabel>Email</FormLabel> */}
-                    <FormControl>
-                      <Input placeholder="Eemail*" {...field} />
-                    </FormControl>
-
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+                />
               {/* message */}
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    {/* <FormLabel>Message</FormLabel> */}
-                    <FormControl>
-                      <Textarea
-                        placeholder="Message*"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
+              <TextareaField 
+              placeholder="Message*"
+              name="message"
               />
               {/* accept privacy terms */}
-              <FormField
+              <CheckboxField 
+               name="privacyCheck"
+               />
+                <div>
+                        I have readed and accept privacy terms
+                      </div>
+                      <div>
+                        You can read in{" "}
+                        <Link href="/privacy-terms" target="_blank">privacy terms</Link>{" "}
+                        page.
+                      </div>
+              {/* <FormField
                 control={form.control}
                 name="privacyCheck"
                 render={({ field }) => (
@@ -199,13 +160,13 @@ export default function ContactForm() {
                     </div>
                   </FormItem>
                 )}
-              />
+              /> */}
                
               <Button type="submit" className={cn({})}>
                 Submit
               </Button>
             </form>
-          </Form>
+          </FormProvider>
         </CardContent>
         <CardFooter>
           <p>Card Footer</p>
