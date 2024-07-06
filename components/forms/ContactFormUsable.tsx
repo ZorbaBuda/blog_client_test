@@ -11,7 +11,7 @@ import {
 import { FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
 import { contactFormSchema } from "@/schemas/contact-form-schema";
-import { useToast } from "../ui/use-toast";
+// import { useToast } from "../ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
@@ -20,11 +20,12 @@ import Link from "next/link";
 import { InputField } from "../form-fields/input-field";
 import { TextareaField } from "../form-fields/textarea-field";
 import { CheckboxField } from "../form-fields/checkbox-field";
-
+import { toast} from "sonner"
+import { Spinner } from "../spinner";
 //  const Input = z.infer<typeof contactFormSchema>
 
 export default function ContactFormUsable() {
-  const { toast } = useToast();
+  // const { toast } = useToast();
 
   const currentDate = new Date().toISOString();
 
@@ -37,9 +38,13 @@ export default function ContactFormUsable() {
       email: "",
       message: "",
       date: currentDate,
-      privacyCheck: false
+      privacyCheck: false,
     },
   });
+
+  const {
+    formState: { isSubmitting}
+  } = form
 
   // function onSubmit(data: z.infer<typeof contactFormSchema>) {
   //   console.log(data)
@@ -52,17 +57,23 @@ export default function ContactFormUsable() {
   //     ),
   //   });
   // }
-  async function onSubmit(data: z.infer<typeof contactFormSchema>) {
-    console.log(data)
-    try{
-   await fetch("/api/contact", {
-    method: "POST",
-    body: JSON.stringify(data)
-   })
-  } catch (error){
-    console.log(error)
+  // async function onSubmit(data: z.infer<typeof contactFormSchema>) {
+     async function onSubmit(data: ContactFormProps) {
+
+    try {
+      const result = await fetch("/api/contact", {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+      if(result.status == 201){
+        console.log("message was submitted")
+        toast.success("Message was submitted")
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Error")
+    }
   }
-}
 
   // function onSubmit(data: ContactFormProps) {
   //   alert(JSON.stringify(data, null, 4));
@@ -73,57 +84,47 @@ export default function ContactFormUsable() {
     <>
       <div>Form</div>
       <div className="mx-auto text-xl border-none">
-          <FormProvider {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="relative space-y-3 overflow-x-hidden"
-              noValidate
-            >
-              {/* name */}
-              <InputField
-                placeholder="Name*"
-                name="name"
-                />
-               {/* surname */}
-              <InputField
-                placeholder="Surname*"
-                name="surname"
-                />
-              {/* phone */}
-              <InputField
-                placeholder="Phone*"
-                name="phone"
-                />
-              {/* email */}
-              <InputField
-                placeholder="Email*"
-                name="email"
-                />
-              {/* message */}
-              <TextareaField 
-              placeholder="Message*"
-              name="message"
-              />
-              {/* accept privacy terms */}
-              <CheckboxField 
-               name="privacyCheck"
-               />
-                <div>
-                        I have readed and accept privacy terms
-                      </div>
-                      <div>
-                        You can read in{" "}
-                        <Link href="/privacy-terms" target="_blank">privacy terms</Link>{" "}
-                        page.
-                      </div>
-            
-               
-              <Button type="submit" className={cn({})}>
-                Submit
-              </Button>
-            </form>
-          </FormProvider>
-       
+        <FormProvider {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="relative space-y-3 overflow-x-hidden"
+            noValidate
+          >
+            {/* name */}
+            <InputField placeholder="Name*" name="name" />
+            {/* surname */}
+            <InputField placeholder="Surname*" name="surname" />
+            {/* phone */}
+            <InputField placeholder="Phone*" name="phone" />
+            {/* email */}
+            <InputField placeholder="Email*" name="email" />
+            {/* message */}
+            <TextareaField placeholder="Message*" name="message" />
+            {/* accept privacy terms */}
+            <CheckboxField name="privacyCheck" />
+            <div>I have readed and accept privacy terms</div>
+            <div>
+              You can read in{" "}
+              <Link href="/privacy-terms" target="_blank">
+                privacy terms
+              </Link>{" "}
+              page.
+            </div>
+
+            <Button 
+              type="submit" 
+              disabled={isSubmitting}
+              className={cn({})}
+              >
+                <span className="size-5">
+                  {isSubmitting ? (
+                      <Spinner className="size-5" />
+                    ) : (<p></p>)}
+                </span>
+              Submit
+            </Button>
+          </form>
+        </FormProvider>
       </div>
       {/* <Checkbox className="mx-auto" id="terms1" /> */}
     </>
