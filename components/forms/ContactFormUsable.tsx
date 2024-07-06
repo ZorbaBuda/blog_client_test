@@ -8,17 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
 import { FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
 import { contactFormSchema } from "@/schemas/contact-form-schema";
@@ -28,7 +17,6 @@ import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { Checkbox } from "../ui/checkbox";
 import { InputField } from "../form-fields/input-field";
 import { TextareaField } from "../form-fields/textarea-field";
 import { CheckboxField } from "../form-fields/checkbox-field";
@@ -38,7 +26,7 @@ import { CheckboxField } from "../form-fields/checkbox-field";
 export default function ContactFormUsable() {
   const { toast } = useToast();
 
-  const currentDate = new Date().toDateString();
+  const currentDate = new Date().toISOString();
 
   const form = useForm<ContactFormProps>({
     resolver: zodResolver(contactFormSchema),
@@ -84,12 +72,7 @@ export default function ContactFormUsable() {
   return (
     <>
       <div>Form</div>
-      <Card className="mx-auto text-xl border-none">
-        <CardHeader>
-          <CardTitle>Contacto</CardTitle>
-          <CardDescription>Haz tu consulta o sugerencia</CardDescription>
-        </CardHeader>
-        <CardContent>
+      <div className="mx-auto text-xl border-none">
           <FormProvider {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
@@ -133,45 +116,15 @@ export default function ContactFormUsable() {
                         <Link href="/privacy-terms" target="_blank">privacy terms</Link>{" "}
                         page.
                       </div>
-              {/* <FormField
-                control={form.control}
-                name="privacyCheck"
-                render={({ field }) => (
-                  <FormItem className="">
-                    <div>
-                    <FormControl>
-                      <Checkbox
-                        checked={field.value}
-                        onCheckedChange={field.onChange}
-                        className=""
-                      />
-                    </FormControl>
-                    <div className="">
-                      <FormLabel>
-                        I have readed and accept privacy terms
-                      </FormLabel>
-                      <FormDescription>
-                        You can read in{" "}
-                        <Link href="/privacy-terms" target="_blank">privacy terms</Link>{" "}
-                        page.
-                      </FormDescription>
-                      <FormMessage />
-                    </div>
-                    </div>
-                  </FormItem>
-                )}
-              /> */}
+            
                
               <Button type="submit" className={cn({})}>
                 Submit
               </Button>
             </form>
           </FormProvider>
-        </CardContent>
-        <CardFooter>
-          <p>Card Footer</p>
-        </CardFooter>
-      </Card>
+       
+      </div>
       {/* <Checkbox className="mx-auto" id="terms1" /> */}
     </>
   );
