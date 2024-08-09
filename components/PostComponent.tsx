@@ -1,21 +1,17 @@
 import Link from 'next/link'
 import React from 'react'
-import { Lilita_One, VT323} from 'next/font/google'
-
 
 interface Props {
   post: Blog;
 }
 
-const font = Lilita_One({weight: "400", subsets: ["latin"]})
-const dateFont = VT323({weight: "400", subsets: ["latin"]})
 
 const PostComponent = ({post}: Props) => {
   return (
     <div className={cardStyle}>
       <Link href={`/posts/${post?.slug}`}>
-        <h2 className={`${font.className} text-2xl dark:text-slate-300`}>{post?.title}</h2>
-        <p className={`${dateFont.className} my-2 text-purple-800`}>{new Date(post?.createdAt).toDateString()}</p>
+        <h2 className={` text-2xl dark:text-slate-300`}>{post?.title}</h2>
+        <p className={` my-2 text-purple-800`}>{new Date(post?.createdAt).toDateString()}</p>
         <p className='dark:text-gray-400 mb-4 line-clamp-2'>{post?.metaDescription}</p>
       </Link>
 

@@ -1,8 +1,8 @@
-import "server-only"
+"use server"
 import { cache } from "react"
 
 async function getBlog(slug : String) {
-    const res = await fetch(`http://localhost:3001/api/blogs/${slug}`)
+    const res = await fetch(`${process.env.SERVER_API}/api/blogs/${slug}`)
    
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary

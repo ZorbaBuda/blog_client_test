@@ -1,13 +1,13 @@
-import "server-only"
+"use server"
 import { cache } from "react"
 
 async function getBlogs() {
-    const res = await fetch('http://localhost:3001/api/blogs',
-      {
-        next: {
-          revalidate: 30
-        }
-      }
+    const res = await fetch(`${process.env.SERVER_API!}/api/blogs`,
+      // {
+      //   next: {
+      //     revalidate: 30
+      //   }
+      // }
     )
    
     if (!res.ok) {

@@ -1,9 +1,8 @@
-import Header from "@/components/Header";
+
 import Toc from "@/components/Toc";
 import { slugify } from "@/app/utils/helpers";
 import { PortableText } from "@portabletext/react";
 import { Metadata } from "next";
-import { VT323 } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -11,7 +10,6 @@ import React from "react";
 import getBlog from "@/lib/getBlog";
 import parser from "html-react-parser"
 
-const dateFont = VT323({ weight: "400", subsets: ["latin"] });
 
 interface Params {
   params: {
@@ -30,37 +28,37 @@ async function getPost(slug: string) {
 
 // export const revalidate = 60;
 
-export async function generateMetadata({
-  params,
-}: Params): Promise<Metadata | undefined> {
-  const post: Blog = await getPost(params?.slug);
-  if (!post) {
-    return;
-  }
+// export async function generateMetadata({
+//   params,
+// }: Params): Promise<Metadata | undefined> {
+//   const post: Blog = await getPost(params?.slug);
+//   if (!post) {
+//     return;
+//   }
 
-  return {
-    title: post.title,
-    description: post.metaDescription,
-    openGraph: {
-      title: post.title,
-      description: post.metaDescription,
-      type: "article",
-      locale: "en_US",
-      url: `https://next-cms-blog-ce.vercel.app/${params.slug}`,
-      siteName: "DevBlook",
-      images: [
-        // {
-        //   url: post.image,
-        // }
-        // {
-        //   url: urlForImage(post?.body?.find((b: any) => b._type === "image")).width(1200).height(630).url(),
-        //   width: 1200,
-        //   height: 630,
-        // },
-      ],
-    },
-  };
-}
+//   return {
+//     title: post.title,
+//     description: post.metaDescription,
+//     openGraph: {
+//       title: post.title,
+//       description: post.metaDescription,
+//       type: "article",
+//       locale: "en_US",
+//       url: `https://next-cms-blog-ce.vercel.app/${params.slug}`,
+//       siteName: "DevBlook",
+//       images: [
+//         // {
+//         //   url: post.image,
+//         // }
+//         // {
+//         //   url: urlForImage(post?.body?.find((b: any) => b._type === "image")).width(1200).height(630).url(),
+//         //   width: 1200,
+//         //   height: 630,
+//         // },
+//       ],
+//     },
+//   };
+// }
 
 const page = async ({ params, searchParams }: Params) => {
  
@@ -84,9 +82,9 @@ const page = async ({ params, searchParams }: Params) => {
             unoptimized
         />
     </div>
-      <Header title={post?.title} />
+     
       <div className="text-center">
-        <span className={`${dateFont?.className} text-purple-500`}>
+        <span className={` text-purple-500`}>
           {new Date(post?.createdAt).toDateString()}
         </span>
         <div className="mt-5">
