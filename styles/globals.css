@@ -66,11 +66,17 @@
     }
   }
 
-  @layer base {
+  /* @layer base {
     * {
       @apply border-border;
     }
     body {
       @apply bg-background text-foreground;
+    }
+  } */
+
+  @layer utilities {
+    .reverseTheme { @apply 
+       bg-black dark:bg-white text-white dark:text-black;
     }
   }

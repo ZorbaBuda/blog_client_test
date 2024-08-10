@@ -38,7 +38,7 @@ export default function RootLayout({
         <TwSizeIndicator />
         <ThemeProvider>
           <Navbar />
-          <main className="h-full mx-auto  px-6">{children}</main>
+          <main className="">{children}</main>
         </ThemeProvider>
       </body>
     </html>

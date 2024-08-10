@@ -17,12 +17,19 @@ const ThemeSwitch = () => {
   }
 
   return (
+
     <button
-      className="border border-purple-500 rounded-2xl p-1 hover:bg-purple-500 hover:bg-opacity-10 dark:hover:bg-opacity-10 dark:hover:bg-amber-50"
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-    >
-      {theme === "dark" ? <SunIcon /> : <MoonIcon />}
-    </button>
+    className=" rounded-full border-2 border-black dark:border-white h-fit"
+    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+  >
+   <div className="">{theme === "dark" ? <SunIcon /> : <MoonIcon />}</div> 
+  </button>
+    // <button
+    //   className="border border-purple-500 rounded-full  hover:bg-purple-500 hover:bg-opacity-10 dark:hover:bg-opacity-10 dark:hover:bg-amber-50"
+    //   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+    // >
+    //   {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+    // </button>
   );
 };
 
