@@ -4,7 +4,7 @@ import { cache } from "react"
 async function getBlogs() {
 
   try {
-    console.log("in get blogs")
+   
       const res = await fetch(`${process.env.SERVER_API!}/api/blogs`,
         {
           cache: "no-store"

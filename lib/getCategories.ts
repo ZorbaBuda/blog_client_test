@@ -1,13 +1,11 @@
-import "server-only"
 import { cache } from "react"
 
 async function getCategories() {
-    const res = await fetch('http://localhost:3001/api/categories',
+    const res = await fetch(`${process.env.SERVER_API!}/api/categories`,
       {
-        next: {
-          revalidate: 30
+       cache: "no-store"
         }
-      }
+      
     )
    
     if (!res.ok) {
