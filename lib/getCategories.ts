@@ -1,6 +1,8 @@
 import { cache } from "react"
 
 async function getCategories() {
+
+  try{
     const res = await fetch(`${process.env.SERVER_API!}/api/categories`,
       {
        cache: "no-store"
@@ -14,6 +16,10 @@ async function getCategories() {
     }
    const data = await res?.json()
     return data
+  } catch(error){
+    console.log(error)
+    return []
+  }
   }
  
    

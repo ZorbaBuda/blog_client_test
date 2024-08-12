@@ -9,13 +9,23 @@ export default function FlatButton({
      selected: boolean
     }) {
 
-console.log(selected)
+    const href = slug === undefined ? "/posts" : `/posts?category=${slug}`
+
   return (
-    <Link href={`/posts?${slug}`} className={`tracking-wider border-black dark:border-white text-black dark:text-white
-    border px-2 py-[0.5px] text-sm rounded-br-lg hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black
-    ${selected ? ""  : "" }
-    `}>
+    <Link href={href}> <div className={`tracking-wider border-black dark:border-white 
+      border px-2 py-[0.5px] text-sm rounded-br-lg hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black
+      
+      ${selected ? "dark:bg-white dark:text-black bg-black text-white"  : "dark:bg-black dark:text-white bg-white text-black" }
+      `}>
         {categoryName}
-    </Link>
+        </div>
+      </Link>
+    // <Link href={`/posts?${slug}`} className={`tracking-wider border-black dark:border-white text-black dark:text-white
+    // border px-2 py-[0.5px] text-sm rounded-br-lg hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black
+    // flex items-center
+    // ${selected ? ""  : "" }
+    // `}>
+    //   <span className="">  {categoryName}</span>
+    // </Link>
   )
 }

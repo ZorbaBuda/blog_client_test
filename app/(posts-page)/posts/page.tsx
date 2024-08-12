@@ -1,5 +1,6 @@
 // import { Post } from "../utils/interface";
 import FlatButton from "@/components/FlatButton";
+import PostCard from "@/components/PostCard";
 import PostComponent from "@/components/PostComponent";
 import getBlogs from "@/lib/getBlogs";
 import getCategories from "@/lib/getCategories";
@@ -24,7 +25,7 @@ export default async function PostsPage({
       <div className="flex flex-col lg:flex-row justify-between gap-y-10">
         <h3 className="text-3xl font-bold">POSTS</h3>
         <ul className="flex flex-wrap gap-2">
-          <FlatButton categoryName="all categories" selected={!!category} />
+          <FlatButton categoryName="all categories" selected={category === undefined} />
           {categories.length &&
             categories.map((cat) => (
               <FlatButton
@@ -38,7 +39,7 @@ export default async function PostsPage({
       </div>
       <div>
         {posts?.length > 0 &&
-          posts?.map((post) => <PostComponent key={post?._id} post={post} />)}
+          posts?.map((post) => <PostCard key={post?._id} post={post} />)}
       </div>
     </div>
   );
