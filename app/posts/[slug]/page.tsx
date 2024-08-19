@@ -1,6 +1,5 @@
-
 import Toc from "@/components/Toc";
-import { slugify } from "@/app/utils/helpers";
+
 import { PortableText } from "@portabletext/react";
 import { Metadata } from "next";
 import Image from "next/image";
@@ -8,7 +7,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import React from "react";
 import getBlog from "@/lib/getBlog";
-import parser from "html-react-parser"
+import parser from "html-react-parser";
+import { dateLocaleFormatted } from "@/lib/utils";
 // https://www.youtube.com/watch?v=wTGVHLyV09M&t=176s
 
 interface Params {
@@ -20,13 +20,12 @@ interface Params {
   };
 }
 
-export async function generateStaticParams() {
-  // SSG return posts.map({id}) => id 
-}
+// export async function generateStaticParams() {
+//   // SSG return posts.map({id}) => id
+// }
 
 async function getPost(slug: string) {
- 
-  const post = await getBlog(slug)
+  const post = await getBlog(slug);
   return post;
 }
 
@@ -35,7 +34,7 @@ async function getPost(slug: string) {
 export async function generateMetadata({
   params,
 }: Params): Promise<Metadata | undefined> {
-  const post: Blog = await getPost(params?.slug);
+  const post: TBlog = await getPost(params?.slug);
   if (!post) {
     return;
   }
@@ -65,8 +64,8 @@ export async function generateMetadata({
 }
 
 const page = async ({ params, searchParams }: Params) => {
- 
-  const post: Blog = await getPost(params?.slug);
+  const post: TBlog = await getPost(params?.slug);
+  const dateFormatted = dateLocaleFormatted(post.createdAt)
 
   // console.log(post)
 
@@ -75,61 +74,16 @@ const page = async ({ params, searchParams }: Params) => {
   }
 
   return (
-    <div>
-       <div className="">
-        <Image
-            src={post.featuredImage.imageUrl || ''}
-            alt={`${post.featuredImage.altText} thumbnail`}
-            height="0"
-            width="0"
-            className="w-1/2 h-fit mb-4 rounded-md mx-auto"
-            unoptimized
-        />
-    </div>
-     
-      <div className="text-center">
-        <span className={` text-purple-500`}>
-          {new Date(post?.createdAt).toDateString()}
-        </span>
-        <div className="mt-5">
-        
-            <Link  href={`/tag/${post?.category}`}>
-              <span className="mr-2 p-1 rounded-sm text-sm lowercase dark:bg-gray-950 border dark:border-gray-900">
-                #{post?.category}
-              </span>
-            </Link>
-         
-        </div>
-        {/* <div className="mt-5">
-          {post?.categories?.map((tag) => (
-            <Link key={tag} href={`/tag/${tag}`}>
-              <span className="mr-2 p-1 rounded-sm text-sm lowercase dark:bg-gray-950 border dark:border-gray-900">
-                #{tag}
-              </span>
-            </Link>
-          ))}
-        </div> */}
-        {/* <Toc headings={post?.headings} /> */}
-        <div className={richTextStyles}>
-         {parser(post.body)}
-        </div>
+    <div className="subcontainer-md">
+      <div className="flex flex-col mx-auto">
+        <div className="text-5xl font-semibold mb-5">{post.title}</div>
+        <span className="">{dateFormatted}</span>
+        <div className="mt-5"></div>
+
+        <div className="prose-custom">{parser(post.body)}</div>
       </div>
     </div>
   );
 };
 
 export default page;
-
-const richTextStyles = `
-mt-14
-text-justify
-max-w-2xl
-m-auto
-prose-headings:my-5
-prose-heading:text-2xl
-prose-p:mb-5
-prose-p:leading-7
-prose-li:list-disc
-prose-li:leading-7
-prose-li:ml-4
-`;
