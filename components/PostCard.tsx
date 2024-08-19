@@ -1,27 +1,19 @@
-import Image from "next/image"
+import { dateLocaleFormatted } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
 
+const PostCard = ({ post }: { post: TBlog }) => {
+  const { title, slug, metaDescription, createdAt } = post;
 
-const PostCard = ({post} :{post : Blog}) => {
+  const dateFormatted = dateLocaleFormatted(createdAt)
 
-const {title, slug, metaDescription,  createdAt } = post
-const {imageUrl,altText } = post.featuredImage
   return (
-    <div>
-        <Image 
-          src={imageUrl}
-          width={300}
-          height={200}
-          alt={altText}
-          className="w-full h-[275px] object-cover object-top"
-          />
-          <div>
-            <div>{title}</div>
-            <div>{createdAt}</div>
-            <div>{metaDescription}</div>
+    <Link href={`/posts/${slug}`}>
+      <div className="text-4xl text-[#326891] dark:text-white font-bold mb-3 ">{title}</div>
+      <div className="text-gray-600 dark:text-gray-300 mb-5">{dateFormatted}</div>
+      <div className="prose-custom">{metaDescription}</div>
+    </Link>
+  );
+};
 
-          </div>
-    </div>
-  )
-}
-
-export default PostCard
+export default PostCard;

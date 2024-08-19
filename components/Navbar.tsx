@@ -5,24 +5,24 @@ import ThemeSwitch from "./ThemeSwitch";
 
 const Navbar = () => {
   return (
-  <div className="fixed top-0 flex w-full justify-between p-4">
-    <div>
+  <div className="  w-full   p-4">
+    <div className="flex mx-auto justify-between items-center">
+    <div className="">
       <Link href="/">
     <div className="text-6xl font-bold tracking-tighter">Advaita Punk</div></Link>
     <div className="flex items-center justify-between">
       <div className="tracking-wider">Lo real es ahora</div>
-      <button className="bg-black dark:bg-white text-black dark:text-black px-2  rounded-br-xl">menu</button>
     </div>
     </div>
-    <div className="bg-white dark:bg-black flex gap-4">
-    <div className="lg:flex gap-4 hidden">
+    
+    <div className="lg:flex flex flex-wrap gap-4 ">
       <Link href="/posts">posts</Link>
-      <Link href="/">experiences</Link>
+      <Link href="/parser">experiences</Link>
       <Link href="/">about</Link>
     </div>
     <ThemeSwitch />
-    </div>
-
+   
+</div>
   </div>
 
 

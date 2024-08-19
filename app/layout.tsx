@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Fira_Code } from "next/font/google";
-import "@/styles/globals.css"
+import "./globals.css"
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import TwSizeIndicator from "@/components/helpers/TwSizeIndicator";
@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={` h-full bg-white dark:bg-black text-black  dark:text-white `}
+        className={`  bg-white dark:bg-black text-black  dark:text-white `}
       >
         <TwSizeIndicator />
         <ThemeProvider>

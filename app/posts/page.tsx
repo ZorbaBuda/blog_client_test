@@ -18,7 +18,7 @@ export default async function PostsPage({
   const posts: Blog[] = await getBlogs();
   const categories: Category[] = await getCategories();
 
-  console.log(category);
+  //console.log(category);
 
   return (
     <div className="mt-[144px] lg:mt-[300px] px-5">

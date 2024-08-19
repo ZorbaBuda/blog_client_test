@@ -1,3 +1,93 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+
+    .prose-custom{
+      @apply prose-lg xl:prose-xl ;
+    }
+  
+    .prose-custom-xl{
+      @apply prose-lg lg:prose-xl xl:prose-2xl ;
+    }
+    
+    .section {
+      @apply py-[55px] lg:py-[100px];
+    }
+  
+    
+    .section-xs {
+      @apply py-10 lg:py-14;
+    }
+  
+    .section-light {
+      @apply py-[55px] lg:py-[70px];
+    }
+    
+    .h1 {
+      @apply text-[42px] lg:text-[62px]  xl:text-[80px]  
+             tracking-tight xl:tracking-tight leading-none ;
+    }
+  
+    .h2 {
+      @apply text-[42px]  lg:text-[55px] xl:text-[70px] leading-none 
+      tracking-tighter xl:tracking-tighter  ;
+    }
+   
+  
+    .h3 {
+      @apply text-[38px] lg:text-[40px] xl:text-[57px] 2xl:text-[60px]  tracking-tighter xl:tracking-tighter ;
+    }
+  
+    .h4 {
+      @apply text-[25px] lg:text-[30px]  2xl:text-[35px] 
+             tracking-normal  leading-relaxed;
+    }
+  
+    
+    /* clinique */
+    .h1c {
+      @apply text-[71.5px] lg:text-[82.5px] xl:text-[110px] tracking-tight leading-none 
+    }
+  
+    .h2c {
+      @apply text-[52.5px] lg:text-[59.5px] xl:text-[70px] tracking-tight leading-none 
+    }
+  
+    .h3c {
+      @apply text-[30.4px] lg:text-[32.3px] xl:text-[38px] 
+    }
+  
+    
+  
+    .subcontainer {
+      @apply flex  mx-auto  px-5 lg:px-14 xl:max-w-7xl;
+    }
+  
+    .subcontainer-md {
+      @apply flex  mx-auto  px-5 lg:px-14 xl:px-10 xl:max-w-4xl 2xl:px-0;
+    }
+    
+    .subcontainerXl {
+      @apply flex  mx-auto  px-5 lg:px-14 xl:px-10 xl:max-w-[1400px] 2xl:px-0;
+    }
+  
+    /* .btn {
+      @apply    text-base  uppercase px-3
+      transition-all duration-500 flex items-center 
+      text-white bg-[#508D4E] hover:text-botella
+      rounded-2xl
+      ;
+    } */
+    /* .btn {
+      @apply   border-2 border-black text-lg tracking-[0.08em] uppercase px-[40px] 
+      transition-all duration-500 flex items-center gap-x-[10px]
+      text-black hover:bg-botella_claro hover:text-botella
+      rounded-md
+      ;
+    } */
+    
+  }
+  
+  

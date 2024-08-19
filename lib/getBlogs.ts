@@ -1,5 +1,6 @@
 "use server"
 import { cache } from "react"
+import { createDict } from "./utils"
 
 async function getBlogs() {
 
@@ -24,6 +25,9 @@ async function getBlogs() {
       
     }
    const data = await res.json()
+  //  console.log(JSON.stringify(data))
+  //  const dataStringified = JSON.stringify(data)
+  //  createDict(dataStringified)
   //  console.log(data)
     return data
 
