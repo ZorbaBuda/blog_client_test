@@ -1,1 +1,7 @@
-{"home1":{"title":"Title English edited again","text":"<div className=\"ContentBoard\"><p>Well, this is edited!</p><p></p><blockquote><p><strong>What if I told you that even though you're at this point, now might be the best time?</strong></p></blockquote><p><strong><em>There is a reason for this to be so. Now I'll tell you what it is.</em></strong></p></div>","linkText":"Start here"}}
+{
+  "home1": {
+    "title": "Title English edited again",
+    "text": "<div className=\"ContentBoard\"><p>Well, this is edited!</p><p></p><blockquote><p><strong>What if I told you that even though you're at this point, now might be the best time?</strong></p></blockquote><p><strong><em>There is a reason for this to be so. Now I'll tell you what it is.</em></strong></p></div>",
+    "linkText": "Start here"
+  }
+}

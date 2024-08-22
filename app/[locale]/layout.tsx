@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
 import { Fira_Code } from "next/font/google";
-import "./globals.css"
+import "../globals.css"
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import TwSizeIndicator from "@/components/helpers/TwSizeIndicator";
+import {getMessages} from 'next-intl/server'
+import {NextIntlClientProvider} from 'next-intl'
+type Props = {
+  children: React.ReactNode,
+  params: {
+    locale: 'en' | 'es',
+  }
+}
 
 const firaCode = Fira_Code({ subsets: ["latin"] });
 
@@ -25,20 +33,25 @@ const firaCode = Fira_Code({ subsets: ["latin"] });
 //   },
 // };
 
-export default function RootLayout({
+
+export default async function RootLayout({
   children,
+  params: {locale}
 }: {
   children: React.ReactNode;
+  params: {locale: string}
 }) {
+  const messages = await getMessages()
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body
         className={`  bg-white dark:bg-black text-black  dark:text-white `}
       >
         <TwSizeIndicator />
         <ThemeProvider>
+          <NextIntlClientProvider messages={messages}>
           <Navbar />
-          <main className="">{children}</main>
+          <main className="">{children}</main></NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>

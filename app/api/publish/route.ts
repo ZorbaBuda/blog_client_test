@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import * as fs from 'fs'
+import path from "path";
+
 
 enum PublishTypes  {
     HOME_PAGE = "homePage",
@@ -16,11 +18,12 @@ export async function POST( request: Request){
     const res = await request.json()
     
 
-    const stringifyEn = JSON.stringify(res.en)
-   const stringifyEs = JSON.stringify(res.es)
+    const stringifyEn = JSON.stringify(res.en.home1)
+   const stringifyEs = JSON.stringify(res.es.home1)
 
+//    fs.writeFileSync(path.join(__dirname,"lang/en","home1.json"), stringifyEn)
     
-    fs.writeFile('dict.json', stringifyEn, err => {
+    fs.writeFile('home1.json', stringifyEn, err => {
       if (err) {
         console.error(err);
       } else {
