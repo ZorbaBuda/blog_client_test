@@ -4,6 +4,8 @@ import PostComponent from "@/components/PostComponent";
 import getBlogs from "@/lib/getBlogs";
 import HeroSection from "./HeroSection";
 import PostCard from "@/components/PostCard";
+import Home1Section from "@/components/Home1Section";
+
 
 
 
@@ -14,7 +16,8 @@ export default async function Home() {
   // console.log(posts, "posts");
 
   return (
-    <section className="mt-24 w-full subcontainerXl ">
+    <section className="mt-24 w-full subcontainerXl flex flex-col ">
+      <Home1Section />
      {/* <HeroSection /> */}
      <div className="mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 ">
