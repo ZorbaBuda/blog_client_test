@@ -1,1 +1,50 @@
-{"home":{"home1":{"title":"Título español","text":"<div className=\"ContentBoard\"><p>Un momento complicado es cuando crees que tus problemas son crónicos, nada te ayuda y nadie te sabe decir qué te pasa.&nbsp;<br><br><strong>¿Y si te dijera que, aunque estés en este punto, ahora podría ser el mejor momento?</strong></p><p><strong>Hay una razón para que esto sea así. Ahora te contaré cuál es.</strong></p></div>","linkText":"Comienza aquí"}},"about":{"home1":{"title":"Título español","text":"<div className=\"ContentBoard\"><p>Un momento complicado es cuando crees que tus problemas son crónicos, nada te ayuda y nadie te sabe decir qué te pasa.&nbsp;<br><br><strong>¿Y si te dijera que, aunque estés en este punto, ahora podría ser el mejor momento?</strong></p><p><strong>Hay una razón para que esto sea así. Ahora te contaré cuál es.</strong></p></div>","linkText":"Comienza aquí"}},"metadata":{"title":"esto es un título","description":"esto es una descripcioón"},"text":"<div className=\"ContentBoard\"><p>Ok, esto esta editado!</p><p></p><blockquote><p><strong>What if I told you that even though you're at this point, now might be the best time?</strong></p></blockquote><p><strong><em>There is a reason for this to be so. Now I'll tell you what it is.</em></strong></p></div>","general-title":"Esta es mi web","product-section":{"subheading":"Acelera tu progreso","title":"Optimiza el flujo de trabajo","features":{"push-to-deploy":{"title":"Despliegue con un clic","description":"Actualizaciones instantaneas"},"database-backups":"Copias de seguridad","description":"No pierdas tu trabajo"}}}
+{
+  "Navbar": {
+    "subtitle": "Lo Real es ahora",
+    "links": {
+      "posts": "artículos",
+      "experiences": "experiencias",
+      "about": "sobre mi"
+    }
+  },
+  "LocaleLayout": {
+    "title": "ejemplo next-intl ",
+    "description": "descripcion ejemplo next-intl"
+  },
+    "LocaleSwitcher": {
+        "label": "Cambiar idioma",
+        "locale": "{locale, select, es {ES Español} en {🇺🇸 English} other {Unknown}}"
+      },
+  "home": {
+    "home1": {
+      "title": "Título español",
+      "text": "<div className=\"ContentBoard\"><p>Un momento complicado es cuando crees que tus problemas son crónicos, nada te ayuda y nadie te sabe decir qué te pasa.&nbsp;<br><br><strong>¿Y si te dijera que, aunque estés en este punto, ahora podría ser el mejor momento?</strong></p><p><strong>Hay una razón para que esto sea así. Ahora te contaré cuál es.</strong></p></div>",
+      "linkText": "Comienza aquí"
+    }
+  },
+  "about": {
+    "home1": {
+      "title": "Título español",
+      "text": "<div className=\"ContentBoard\"><p>Un momento complicado es cuando crees que tus problemas son crónicos, nada te ayuda y nadie te sabe decir qué te pasa.&nbsp;<br><br><strong>¿Y si te dijera que, aunque estés en este punto, ahora podría ser el mejor momento?</strong></p><p><strong>Hay una razón para que esto sea así. Ahora te contaré cuál es.</strong></p></div>",
+      "linkText": "Comienza aquí"
+    }
+  },
+  "metadata": {
+    "title": "esto es un título",
+    "description": "esto es una descripcioón"
+  },
+  "text": "<div className=\"ContentBoard\"><p>Ok, esto esta editado!</p><p></p><blockquote><p><strong>What if I told you that even though you're at this point, now might be the best time?</strong></p></blockquote><p><strong><em>There is a reason for this to be so. Now I'll tell you what it is.</em></strong></p></div>",
+  "general-title": "Esta es mi web",
+  "product-section": {
+    "subheading": "Acelera tu progreso",
+    "title": "Optimiza el flujo de trabajo",
+    "features": {
+      "push-to-deploy": {
+        "title": "Despliegue con un clic",
+        "description": "Actualizaciones instantaneas"
+      },
+      "database-backups": "Copias de seguridad",
+      "description": "No pierdas tu trabajo"
+    }
+  }
+}

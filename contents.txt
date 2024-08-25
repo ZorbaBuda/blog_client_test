@@ -1,3 +1,9 @@
+NEXT-INTL
+
+
+
+SEO
+
 -Layout Metadata (global SEO setup)
 
 socialsharepreviews
@@ -13,3 +19,5 @@ socialsharepreviews
 -Sitemap
 
 -Robots
+
+TODO: dynamic sitemap (when new post is added, for instance)

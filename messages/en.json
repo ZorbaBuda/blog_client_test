@@ -1,1 +1,50 @@
-{"home":{"home1":{"title":"Title English hello","text":"<div className=\"ContentBoard\"><p>Well, this is edited!</p><p></p><blockquote><p><strong>What if I told you that even though you're at this point, now might be the best time?</strong></p></blockquote><p><strong><em>There is a reason for this to be so. Now I'll tell you what it is.</em></strong></p></div>","linkText":"Start here"}},"about":{"home1":{"title":"Title English hello","text":"<div className=\"ContentBoard\"><p>Well, this is edited!</p><p></p><blockquote><p><strong>What if I told you that even though you're at this point, now might be the best time?</strong></p></blockquote><p><strong><em>There is a reason for this to be so. Now I'll tell you what it is.</em></strong></p></div>","linkText":"Start here"}},"metadata":{"title":"this is a title","description":"this is a description"},"text":"<div className=\"ContentBoard\"><p>Well, this is edited!</p><p></p><blockquote><p><strong>What if I told you that even though you're at this point, now might be the best time?</strong></p></blockquote><p><strong><em>There is a reason for this to be so. Now I'll tell you what it is.</em></strong></p></div>","general-title":"This is my web","product-section":{"subheading":"Accelerate your progress","title":"Optimize work flow","features":{"push-to-deploy":{"title":"One click deployment","description":"instant updates"},"database-backups":"Security copies","description":"Never lose your work"}}}
+{
+  "Navbar": {
+    "subtitle": "The Real is Now",
+    "links": {
+      "posts": "posts",
+      "experiences": "experiences",
+      "about": "about"
+    }
+  },
+  "LocaleLayout": {
+    "title": "next-intl example",
+    "description": "description next-intl example"
+  },
+    "LocaleSwitcher": {
+        "label": "Change language",
+        "locale": "{locale, select, es {ES Español} en {🇺🇸 English} other {Unknown}}"
+      },
+  "home": {
+    "home1": {
+      "title": "Title English hello",
+      "text": "<div className=\"ContentBoard\"><p>Well, this is edited!</p><p></p><blockquote><p><strong>What if I told you that even though you're at this point, now might be the best time?</strong></p></blockquote><p><strong><em>There is a reason for this to be so. Now I'll tell you what it is.</em></strong></p></div>",
+      "linkText": "Start here"
+    }
+  },
+  "about": {
+    "home1": {
+      "title": "Title English hello",
+      "text": "<div className=\"ContentBoard\"><p>Well, this is edited!</p><p></p><blockquote><p><strong>What if I told you that even though you're at this point, now might be the best time?</strong></p></blockquote><p><strong><em>There is a reason for this to be so. Now I'll tell you what it is.</em></strong></p></div>",
+      "linkText": "Start here"
+    }
+  },
+  "metadata": {
+    "title": "this is a title",
+    "description": "this is a description"
+  },
+  "text": "<div className=\"ContentBoard\"><p>Well, this is edited!</p><p></p><blockquote><p><strong>What if I told you that even though you're at this point, now might be the best time?</strong></p></blockquote><p><strong><em>There is a reason for this to be so. Now I'll tell you what it is.</em></strong></p></div>",
+  "general-title": "This is my web",
+  "product-section": {
+    "subheading": "Accelerate your progress",
+    "title": "Optimize work flow",
+    "features": {
+      "push-to-deploy": {
+        "title": "One click deployment",
+        "description": "instant updates"
+      },
+      "database-backups": "Security copies",
+      "description": "Never lose your work"
+    }
+  }
+}

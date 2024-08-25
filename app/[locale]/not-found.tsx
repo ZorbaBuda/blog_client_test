@@ -7,7 +7,7 @@ const NotFound = () => {
     <div>
      
       <div>
-        <Link href="/">Return Home</Link>
+        <Link className="text-3xl font-semibold" href="/">404 Return Home</Link>
       </div>
     </div>
   );
